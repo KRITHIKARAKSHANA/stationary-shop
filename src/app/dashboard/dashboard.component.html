@@ -1,0 +1,22 @@
+<div class="login-form">
+    <div class="form">
+        <h2 class="text-center">Welcome!!!</h2>	
+        <br>
+        <img [src]="userDetails?.photoUrl" alt="user-avatar" class="user-avatar">
+        <br><br>
+        <p> <span>Name: </span> {{userDetails?.name}} </p>
+        <p> <span>Email: </span> {{userDetails?.email}}</p>
+        <br>
+        <button class="btn btn-secondary" (click)="upload()">Upload a File</button>
+        <br><br>
+        <button class="btn btn-danger" (click)= "signOut()">Sign Out</button>
+    </div>  
+</div>
+
+
+
+
+
+
+
+
