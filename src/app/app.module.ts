@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 import {SocialAuthServiceConfig} from 'angularx-social-login';
 import {SocialLoginModule, GoogleLoginProvider} from 'angularx-social-login';
-import { provider } from 'firebase-functions/lib/providers/analytics';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
