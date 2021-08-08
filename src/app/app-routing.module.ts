@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { LoginComponent } from './login/login.component';
-import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
   {
@@ -22,10 +21,6 @@ const routes: Routes = [
   {
     path: 'file-upload',
     component: FileUploadComponent
-  },
-  {
-    path: 'map',
-    component: MapComponent
   }
 ];
 

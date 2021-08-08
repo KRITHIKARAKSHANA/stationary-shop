@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,7 +14,6 @@ import { provider } from 'firebase-functions/lib/providers/analytics';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-import { MapComponent } from './map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 
@@ -20,13 +23,14 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LoginComponent,
     DashboardComponent,
     FileUploadComponent,
-    MapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FormsModule, 
+    Ng2SearchPipeModule
   ],
   providers: [
     {
@@ -40,7 +44,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
           }
         ]
       } as SocialAuthServiceConfig
-    }
+    },
+    CurrencyPipe
   ],
   bootstrap: [AppComponent]
 })
