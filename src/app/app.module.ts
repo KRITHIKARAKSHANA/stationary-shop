@@ -1,12 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyPipe } from '@angular/common';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { dirConfig } from './dir.config';
+import { RouterConfig,RouterDeclarations } from './app-routing.module';
+import { ProductsModel } from './model/products.model';
+import { BillingFormModel } from './model/billingformfields.model';
+import { CompanyDetailsModel } from './model/companydetails.model';
+
+
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+
+import { StorageService } from './services/storage.service';
+import { CartService } from './services/cart.service';
 
 import {SocialAuthServiceConfig} from 'angularx-social-login';
 import {SocialLoginModule, GoogleLoginProvider} from 'angularx-social-login';
@@ -22,6 +35,10 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LoginComponent,
     DashboardComponent,
     FileUploadComponent,
+    dirConfig ,
+    RouterDeclarations,
+    FilterPipe,
+    SortPipe 
   ],
   imports: [
     BrowserModule,
@@ -29,7 +46,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     SocialLoginModule,
     GoogleMapsModule,
     FormsModule, 
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    ReactiveFormsModule,
+    RouterConfig
   ],
   providers: [
     {
@@ -44,7 +63,12 @@ import { GoogleMapsModule } from '@angular/google-maps';
         ]
       } as SocialAuthServiceConfig
     },
-    CurrencyPipe
+    CurrencyPipe,
+    ProductsModel,
+    BillingFormModel,
+    CompanyDetailsModel, 
+    StorageService,
+    CartService
   ],
   bootstrap: [AppComponent]
 })

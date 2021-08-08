@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
   }
   
   upload(): void {
-    this.router.navigateByUrl('/file-upload').then();
+    this.router.navigateByUrl('/products').then();
   }
   signOut(): void {
     localStorage.removeItem('google_auth');
