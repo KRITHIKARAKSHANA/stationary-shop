@@ -38,7 +38,7 @@ import { Router } from '@angular/router';
           </div>
                  
       </div>
-    <button (click)= "checkout()" type="submit" class="btn btn-sm btn-primary" [disabled]="billingForm.invalid" *ngIf="cart.cartItemsList && cart.cartTotal">Confirm and Place Order</button>
+    <button type="submit" class="btn btn-sm btn-primary" [disabled]="billingForm.invalid" *ngIf="cart.cartItemsList && cart.cartTotal">Confirm and Place Order</button>
     <button (click)= "products()" class="btn btn-sm btn-info float-right">Continue Shopping</button>
   
 </form>
@@ -97,10 +97,6 @@ send(){
 
 products(): void {
   this.router.navigateByUrl('/products').then();
-}
-
-checkout(): void {
-  this.router.navigateByUrl('/checkout').then();
 }
 
 }
