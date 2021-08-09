@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { StorageService } from './storage.service';
 @Injectable()
 
@@ -11,8 +10,7 @@ export class CartService {
   public cartItemsStorageName = 'mycart';
 
   constructor(
-    public storage: StorageService,
-    private router: Router
+    public storage: StorageService
   ){
     this.loadCart();
   }
@@ -82,7 +80,6 @@ export class CartService {
     this.storage.set({
       mycart:{}
     })
-    this.router.navigateByUrl('/products').then();
   }
   
   

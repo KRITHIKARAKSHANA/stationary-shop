@@ -2,6 +2,7 @@ import { Component,Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { StorageService } from '../services/storage.service';
 import { CompanyDetailsModel } from '../model/companydetails.model';
+import { Router } from '@angular/router';
 @Component({
   selector : 'checkout-dir',
   template : ` 
@@ -149,7 +150,8 @@ export class CheckOutDir{
   constructor(
     public cart: CartService,
     public storage: StorageService,
-    public company: CompanyDetailsModel
+    public company: CompanyDetailsModel,
+    private router: Router
   ){
 
   }
@@ -168,7 +170,7 @@ export class CheckOutDir{
     
     //this.checkOutFlag = Object.keys(this.storage.get()).length;
     //console.log(this.checkOutFlag)
-    document.location.href='/products';
+    this.router.navigateByUrl('/products').then();
   }
 
   print(){
