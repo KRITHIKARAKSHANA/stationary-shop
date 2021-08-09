@@ -2,7 +2,6 @@ import { Component,Input } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { StorageService } from '../services/storage.service';
 import { CompanyDetailsModel } from '../model/companydetails.model';
-import { Router } from '@angular/router';
 @Component({
   selector : 'checkout-dir',
   template : ` 
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
    <div *ngIf="customerDetails && customerDetails.firstName;else emptyCheckout "> 
    <div class="alert alert-success d-print-none" role="alert">
     Thank you so much <strong>{{customerDetails.firstName}} {{customerDetails.lastName}}</strong>.Your order has been placed successfully and will be delivered in <strong>3 days.</strong> 
-    <button class="btn btn-sm btn-info ml-2 mr-1" (click)="print()">Print Invoice</button><button class="btn btn-sm btn-info ml-1" (click)="clearCart()">Place a New Order</button>
+    <button class="btn btn-sm btn-info ml-2 mr-1" (click)="print()">Print Invoice</button><button routerLink = '/products' class="btn btn-sm btn-info ml-1" (click)="clearCart()">Place a New Order</button>
     
    </div>
    
@@ -150,8 +149,7 @@ export class CheckOutDir{
   constructor(
     public cart: CartService,
     public storage: StorageService,
-    public company: CompanyDetailsModel,
-    private router: Router
+    public company: CompanyDetailsModel
   ){
 
   }
@@ -170,7 +168,7 @@ export class CheckOutDir{
     
     //this.checkOutFlag = Object.keys(this.storage.get()).length;
     //console.log(this.checkOutFlag)
-    this.router.navigateByUrl('/products').then();
+    document.location.href='/products';
   }
 
   print(){
