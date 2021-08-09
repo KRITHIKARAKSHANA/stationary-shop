@@ -58,7 +58,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider('937951453027-k7f7j5aeuimkj3ihl6hba6tv8ocar7d5.apps.googleusercontent.com')
+            provider: new GoogleLoginProvider('937951453027-d9q6a6k1f150p164n9gv91pf2u8v0944.apps.googleusercontent.com')
           }
         ]
       } as SocialAuthServiceConfig
