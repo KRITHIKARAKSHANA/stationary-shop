@@ -89,7 +89,6 @@ export class AddToCartDir{
     if(cartStatus){
       this.cart.emptyCart();
       document.location.href = '/products';
-      this.router.navigateByUrl('/products').then();
     }
   }
 
