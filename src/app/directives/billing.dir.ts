@@ -2,6 +2,7 @@ import { Component,Input,Output } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { CartService } from '../services/cart.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 //import { emailValidation } from '../validations/custom.validate';
 @Component({
   selector : 'billing-dir',
@@ -37,8 +38,8 @@ import { FormBuilder } from '@angular/forms';
           </div>
                  
       </div>
-    <button type="submit" class="btn btn-sm btn-primary" [disabled]="billingForm.invalid" *ngIf="cart.cartItemsList && cart.cartTotal">Confirm and Place Order</button>
-    <a routerLink="/products" class="btn btn-sm btn-info float-right">Continue Shopping</a>
+    <button (click)= "checkout()" type="submit" class="btn btn-sm btn-primary" [disabled]="billingForm.invalid" *ngIf="cart.cartItemsList && cart.cartTotal">Confirm and Place Order</button>
+    <button (click)= "products()" class="btn btn-sm btn-info float-right">Continue Shopping</button>
   
 </form>
   `,
@@ -58,6 +59,7 @@ export class BillingDir{
     public fb:FormBuilder,
     public storage:StorageService,
     public cart:CartService,
+    private router: Router
   ){
 
   }
@@ -92,4 +94,13 @@ send(){
     document.location.href="/checkout";
   }
 }
+
+products(): void {
+  this.router.navigateByUrl('/products').then();
+}
+
+checkout(): void {
+  this.router.navigateByUrl('/checkout').then();
+}
+
 }
