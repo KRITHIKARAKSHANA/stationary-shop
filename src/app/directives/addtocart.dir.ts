@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CartService } from '../services/cart.service';
 @Component({
   selector :'cart',
@@ -67,8 +66,7 @@ import { CartService } from '../services/cart.service';
 export class AddToCartDir{
   
   constructor(
-    public cart: CartService,
-    private router: Router,
+    public cart: CartService
   ){
     
   }
@@ -88,7 +86,7 @@ export class AddToCartDir{
     let cartStatus = confirm("Are you sure you want to clear the cart ?");
     if(cartStatus){
       this.cart.emptyCart();
-      this.router.navigateByUrl('/products').then();
+      document.location.href = '/products';
     }
   }
 
